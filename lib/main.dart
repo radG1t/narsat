@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:narsat/admin_panel.dart';
 import 'package:narsat/product_page.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -19,13 +20,24 @@ class NarsatLanding extends StatelessWidget {
         // در صورت افزودن فونت Vazir در pubspec می‌تونی از این استفاده کنی:
         // fontFamily: 'Vazir',
       ),
+
+      initialRoute: '/home', // همیشه اول میره به Home
+      routes: {
+        '/': (context) => LandingPage(), // وقتی کاربر "/" رو بزنه
+        '/home': (context) => LandingPage(), // صفحه اصلی
+        '/admin': (context) => adminPanel(), // پنل ادمین
+      },
+    );
+  }
+}
+/*
       home: const Directionality(
         textDirection: TextDirection.rtl,
         child: LandingPage(),
       ),
     );
   }
-}
+} */
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
