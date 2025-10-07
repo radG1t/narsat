@@ -23,7 +23,6 @@ class _LoginPageState extends State<LoginPage> {
     return null;
   }
 
-  // اعتبارسنجی رمز عبور
   String? _validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'لطفا رمز عبور را وارد کنید.';
@@ -39,10 +38,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _login() {
-    // ابتدا بررسی می‌کنیم که آیا فرم معتبر است یا خیر
     if (_formKey.currentState!.validate()) {
-      // اگر معتبر بود، به صفحه محصولات می‌رویم
-      // در یک اپلیکیشن واقعی، اینجا درخواست به سرور ارسال می‌شود
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const ProductPage()),
@@ -77,7 +73,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 48.0),
 
-                  // فیلد شماره تلفن
                   TextFormField(
                     validator: _validatePhoneNumber,
                     keyboardType: TextInputType.phone,
@@ -90,7 +85,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 12.0),
 
-                  // فیلد رمز عبور
                   TextFormField(
                     validator: _validatePassword,
                     obscureText: !_isPasswordVisible,
@@ -115,7 +109,6 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 24.0),
 
-                  // دکمه ورود
                   ElevatedButton(
                     onPressed: _login,
                     style: ElevatedButton.styleFrom(
@@ -133,15 +126,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 16.0),
 
-                  // گزینه ثبت نام
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text('حساب کاربری ندارید؟'),
                       TextButton(
                         onPressed: () {
-                          // منطق رفتن به صفحه ثبت نام در اینجا قرار می‌گیرد
-                          // فعلا یک پیام در کنسول چاپ می‌کنیم
                           print('رفتن به صفحه ثبت نام');
                         },
                         child: Text(

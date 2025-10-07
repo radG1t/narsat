@@ -21,11 +21,11 @@ class NarsatLanding extends StatelessWidget {
         // fontFamily: 'Vazir',
       ),
 
-      initialRoute: '/home', // همیشه اول میره به Home
+      initialRoute: '/home',
       routes: {
-        '/': (context) => LandingPage(), // وقتی کاربر "/" رو بزنه
-        '/home': (context) => LandingPage(), // صفحه اصلی
-        '/admin': (context) => adminPanel(), // پنل ادمین
+        '/': (context) => LandingPage(),
+        '/home': (context) => LandingPage(),
+        '/admin': (context) => adminPanel(),
       },
     );
   }
@@ -480,7 +480,6 @@ class ProductCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 ElevatedButton(
                   onPressed: () {
-                    // در MVP دکمه می‌تواند شماره واتساپ را نشان دهد یا لینک تماس
                     launchUrlString(
                       'https://wa.me/989123456789?text=${Uri.encodeComponent('سلام، درباره این محصول می‌خواهم صحبت کنم')}',
                     );

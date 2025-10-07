@@ -11,8 +11,7 @@ class NarsatApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
         scaffoldBackgroundColor: Colors.white,
-        fontFamily:
-            'Vazir', // اطمینان حاصل کنید که فونت وزیر را به پروژه اضافه کرده‌اید
+        fontFamily: 'Vazir',
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
           enabledBorder: OutlineInputBorder(
@@ -39,7 +38,6 @@ class NarsatApp extends StatelessWidget {
       ),
       home: const LoginPage(),
       debugShowCheckedModeBanner: false,
-      // برای راست‌چین کردن کل برنامه
       builder: (context, child) {
         return Directionality(textDirection: TextDirection.rtl, child: child!);
       },

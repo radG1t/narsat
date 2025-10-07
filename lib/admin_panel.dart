@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dashpanel.dart';
 
 class adminPanel extends StatefulWidget {
   const adminPanel({super.key});
@@ -13,15 +14,18 @@ class _AdminLoginPageState extends State<adminPanel> {
 
   String errorMessage = "";
 
-  void _login() {
+  void _login(BuildContext context) {
     String username = _usernameController.text;
     String password = _passwordController.text;
 
-    if (username == "admin" && password == "1234") {
-      Navigator.pushReplacementNamed(context, '/admin');
+    if (username == 'admin' && password == '1234') {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Dashpanel()),
+      );
     } else {
       setState(() {
-        errorMessage = "یوزرنیم یا پسورد اشتباه است!";
+        errorMessage = "نام کاربری یا رمز اشتباه است";
       });
     }
   }
@@ -46,7 +50,10 @@ class _AdminLoginPageState extends State<adminPanel> {
               obscureText: true,
             ),
             const SizedBox(height: 20),
-            ElevatedButton(onPressed: _login, child: const Text("ورود")),
+            ElevatedButton(
+              onPressed: () => _login(context), // ✅ لاگین صدا زده میشه
+              child: const Text("ورود"),
+            ),
             if (errorMessage.isNotEmpty) ...[
               const SizedBox(height: 12),
               Text(errorMessage, style: const TextStyle(color: Colors.red)),
